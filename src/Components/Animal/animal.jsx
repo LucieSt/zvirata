@@ -3,7 +3,7 @@ import './style.css'
 
 const Animal = () => {
     return (
-        <div></div>
+        <div>Here will be animal component</div>
     )
 };
 
