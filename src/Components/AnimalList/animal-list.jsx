@@ -1,9 +1,15 @@
 import React from "react";
+import Animal from "../Animal/animal";
 import './style.css'
 
-const AnimalList = () => {
+const AnimalList = ({ animals }) => {
+
+    console.log("from animal list", animals)
+
     return (
-        <div></div>
+        <div className="animal-list">
+            <Animal />
+        </div>
     )
 };
 
