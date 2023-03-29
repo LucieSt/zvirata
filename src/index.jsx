@@ -7,6 +7,7 @@ import './style.css';
 const App = () => {
 
   const [data, setData] = useState(null)
+  const [detailedAnimal, setDetailedAnimal] = useState(null)
 
   useEffect(() => {
     fetch('https://lrolecek.github.io/zviratka-api/zvirata.json')
@@ -19,15 +20,18 @@ const App = () => {
       })
   }, []);
 
-  console.log(data);
+  const handleChoose = (text) => {
+    const choosenAnimal = data.find(animal => animal.nazev === text);
+    setDetailedAnimal(choosenAnimal);
+  };
 
   return (
     <>
       <h1>Zvířátka v ZOO</h1>
         
       <div className="container">
-        <AnimalList animals={data}/>
-        <AnimalDetail />
+        <AnimalList animals={data} onChoose={handleChoose}/>
+        {detailedAnimal ? <AnimalDetail nazev={detailedAnimal.nazev} foto={detailedAnimal.foto}/> : <AnimalDetail nazev="hello" foto=""/>}
       </div>
     </>
   );
