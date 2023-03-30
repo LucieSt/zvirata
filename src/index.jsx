@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, { useEffect, useState } from 'react';
 import { createRoot } from 'react-dom/client';
 import AnimalList from './Components/AnimalList/animal-list';
 import AnimalDetail from './Components/AnimalDetail/animal-detail';
@@ -28,10 +28,32 @@ const App = () => {
   return (
     <>
       <h1>Zvířátka v ZOO</h1>
-        
+
       <div className="container">
-        <AnimalList animals={data} onChoose={handleChoose}/>
-        {detailedAnimal ? <AnimalDetail nazev={detailedAnimal.nazev} foto={detailedAnimal.foto}/> : <AnimalDetail nazev="hello" foto=""/>}
+        <AnimalList animals={data} onChoose={handleChoose} />
+        {detailedAnimal ? 
+          <AnimalDetail 
+            nazev={detailedAnimal.nazev}
+            foto={detailedAnimal.foto}
+            nazevLatinsky={detailedAnimal.nazevLatinsky}
+            domovina={detailedAnimal.domovina}
+            popis={detailedAnimal.popis}
+            potrava={detailedAnimal.potrava}
+            biotop={detailedAnimal.biotop}
+            velikost={detailedAnimal.velikost}
+          /> 
+          : 
+          data && <AnimalDetail
+            nazev={data[0].nazev}
+            foto={data[0].foto}
+            nazevLatinsky={data[0].nazevLatinsky}
+            domovina={data[0].domovina}
+            popis={data[0].popis}
+            potrava={data[0].potrava}
+            biotop={data[0].biotop}
+            velikost={data[0].velikost}
+          />
+        }
       </div>
     </>
   );

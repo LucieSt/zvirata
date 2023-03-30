@@ -1,7 +1,7 @@
 import React from "react";
 import './style.css'
 
-const AnimalDetail = ({ nazev, foto }) => {
+const AnimalDetail = ({ nazev, foto, nazevLatinsky, domovina, popis, potrava, biotop, velikost }) => {
 	return (
 		<div className="detail">
 			<div className="detail__content">
@@ -10,31 +10,31 @@ const AnimalDetail = ({ nazev, foto }) => {
 					<img className="detail__image" src={foto} alt={nazev} />
 					<div className="detail__title">
 						<h2 className="detail__name"><span>{nazev}</span></h2>
-						<div className="detail__latin"><span>Loxodonta africana</span></div>
+						<div className="detail__latin"><span>{nazevLatinsky}</span></div>
 					</div>
 				</div>
 
 				<div className="detail__info">
 					<p className="detail__desc">
-						Typickými znaky největších suchozemských savců jsou kly (přeměněné horní řezáky) a pohyblivý chobot, který vznikl srůstem a prodloužením horního pysku a nosu. Velikosti těla odpovídá i množství potravy, které kolísá od 300 do 450 kg. Samec a samice se setkávají pouze v období páření. Zatímco samci vytvářejí mládenecké skupiny nebo žijí samotářsky, samice společně s mláďaty vytvářejí rodinné klany čítající 20 až 30 zvířat. Mládě přichází na svět po březosti 22 měsíců, měří na výšku 1 m a váží 100 kg. Mateřské mléko pije tlamou, chobot se naučí používat teprve ve 3 měsících.
+						{popis}
 					</p>
 
 					<div className="detail__items">
 						<div className="detail__item">
 							<h3>Domovina</h3>
-							<p>subsaharská Afrika</p>
+							<p>{domovina}</p>
 						</div>
 						<div className="detail__item">
 							<h3>Biotop</h3>
-							<p>savany, polopouště, pouště</p>
+							<p>{biotop}</p>
 						</div>
 						<div className="detail__item">
 							<h3>Potrava</h3>
-							<p>tráva, listí, větve</p>
+							<p>{potrava}</p>
 						</div>
 						<div className="detail__item">
 							<h3>Velikost</h3>
-							<p>hmotnost 2,7-6,3 t; délka těla 6-7,5 m</p>
+							<p>{velikost}</p>
 						</div>
 					</div>
 
